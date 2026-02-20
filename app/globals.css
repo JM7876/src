@@ -1,0 +1,249 @@
+/*
+ * WOLF FLOW — Visual Design System
+ * Created and Authored by Johnathon Moulds © 2026
+ */
+
+@import "tailwindcss";
+
+:root {
+  /* Wolf Flow Electric Purple Palette (Night Mode) */
+  --wf-purple-primary: #C41DF2;
+  --wf-purple-medium: #5241BF;
+  --wf-purple-deep: #5A278C;
+  --wf-purple-dark: #1E0E40;
+  --wf-purple-darkest: #0C0826;
+  --wf-purple-glow: rgba(196, 29, 242, 0.25);
+  
+  /* Wolf Flow Blue Palette (Day Mode) */
+  --wf-blue-lightest: #D5D7F2;
+  --wf-blue-soft: #9C9AD9;
+  --wf-blue-medium: #555BD9;
+  --wf-blue-bright: #6273D9;
+  --wf-blue-deep: #2540D9;
+  --wf-blue-glow: rgba(85, 91, 217, 0.25);
+  
+  /* Glass Morphism Accent (Hot Pink for Night) */
+  --wf-accent-pink: #FF69B4;
+  --wf-accent-pink-glow: rgba(255, 105, 180, 0.3);
+  
+  /* Neutral Grays */
+  --wf-gray-900: #111827;
+  --wf-gray-800: #1F2937;
+  --wf-gray-700: #374151;
+  --wf-gray-600: #4B5563;
+  --wf-gray-500: #6B7280;
+  --wf-gray-400: #9CA3AF;
+  --wf-gray-300: #D1D5DB;
+  --wf-gray-200: #E5E7EB;
+  --wf-gray-100: #F3F4F6;
+  
+  /* Semantic Colors */
+  --wf-success: #10B981;
+  --wf-warning: #F59E0B;
+  --wf-error: #EF4444;
+  --wf-info: #3B82F6;
+  
+  /* Theme Variables (Night Mode Default) */
+  --bg-base: #0C0826;
+  --accent: #C41DF2;
+  --accent-secondary: #FF69B4;
+  --accent-light: #5241BF;
+  --accent-glow: rgba(196, 29, 242, 0.25);
+  
+  /* Text Colors */
+  --text-primary: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-dim: rgba(255, 255, 255, 0.40);
+  --text-muted: rgba(255, 255, 255, 0.20);
+  
+  /* Glass Morphism */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 40px;
+  --border: rgba(255, 255, 255, 0.08);
+  
+  /* Typography */
+  --font-primary: 'Clean', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Ring Pattern Opacity (for background patterns) */
+  --ring-outer-opacity: 0.065;
+  --ring-mid-opacity: 0.075;
+  --ring-inner-opacity: 0.085;
+  --center-glow-opacity: 0.12;
+  
+  /* Directional Pulls (for gradient effects) */
+  --north-pull: rgba(196, 29, 242, 0.035);
+  --east-pull: rgba(255, 105, 180, 0.055);
+  --south-pull: rgba(255, 105, 180, 0.04);
+  --west-pull: rgba(82, 65, 191, 0.07);
+}
+
+/* Day Mode Theme */
+[data-theme="day"] {
+  --bg-base: #F3F4F6;
+  --accent: #555BD9;
+  --accent-secondary: #2540D9;
+  --accent-light: #9C9AD9;
+  --accent-glow: rgba(85, 91, 217, 0.25);
+  
+  --text-primary: rgba(17, 24, 39, 0.92);
+  --text-secondary: rgba(17, 24, 39, 0.65);
+  --text-dim: rgba(17, 24, 39, 0.40);
+  --text-muted: rgba(17, 24, 39, 0.20);
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(17, 24, 39, 0.1);
+  --border: rgba(17, 24, 39, 0.08);
+  
+  --ring-outer-opacity: 0.08;
+  --ring-mid-opacity: 0.09;
+  --ring-inner-opacity: 0.1;
+  --center-glow-opacity: 0.14;
+  
+  --north-pull: rgba(85, 91, 217, 0.04);
+  --east-pull: rgba(85, 91, 217, 0.05);
+  --south-pull: rgba(85, 91, 217, 0.035);
+  --west-pull: rgba(37, 64, 217, 0.06);
+}
+
+/* Background Classes */
+.wolf-flow-background.night { 
+  background: linear-gradient(135deg, #0C0826 0%, #1E0E40 50%, #0C0826 100%);
+}
+
+.wolf-flow-background.day { 
+  background: linear-gradient(135deg, #D5D7F2 0%, #9C9AD9 50%, #D5D7F2 100%);
+}
+
+/* Glow Effects */
+.glow-element { 
+  transition: all 0.8s ease; 
+}
+
+body:hover .glow-element { 
+  filter: drop-shadow(0 0 12px var(--accent)); 
+  stroke-opacity: 1; 
+}
+
+/* Base Resets */
+*, *::before, *::after { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html, body { 
+  overflow-x: hidden; 
+  max-width: 100vw; 
+}
+
+body { 
+  background: var(--bg-base); 
+  color: var(--text-primary); 
+  font-family: var(--font-primary); 
+  -webkit-font-smoothing: antialiased; 
+  transition: background-color 0.7s ease, color 0.7s ease;
+}
+
+/* Selection & Form Styling */
+::selection { 
+  background: var(--accent-glow); 
+}
+
+::placeholder { 
+  color: var(--text-muted); 
+}
+
+input, textarea, select { 
+  font-family: var(--font-primary); 
+}
+
+input:focus, textarea:focus, select:focus { 
+  outline: none; 
+  border-color: var(--accent) !important; 
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar { 
+  width: 4px; 
+}
+
+::-webkit-scrollbar-track { 
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb { 
+  background: rgba(255, 255, 255, 0.08); 
+  border-radius: 2px; 
+}
+
+::-webkit-scrollbar-thumb:hover { 
+  background: var(--accent); 
+}
+
+/* Animations */
+@keyframes slideUp { 
+  from { opacity: 0; transform: translateY(16px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+@keyframes fadeIn { 
+  from { opacity: 0; } 
+  to { opacity: 1; } 
+}
+
+@keyframes fadeUp { 
+  from { opacity: 0; transform: translateY(12px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+@keyframes scaleIn { 
+  from { opacity: 0; transform: scale(0.9); } 
+  to { opacity: 1; transform: scale(1); } 
+}
+
+@keyframes popIn { 
+  from { opacity: 0; transform: scale(0.5); } 
+  to { opacity: 1; transform: scale(1); } 
+}
+
+@keyframes glowPulse { 
+  0%, 100% { opacity: 0.6; transform: scale(1); } 
+  50% { opacity: 1; transform: scale(1.06); } 
+}
+
+@keyframes sparkle { 
+  0%, 100% { opacity: 0.1; transform: scale(0.8); } 
+  50% { opacity: 0.6; transform: scale(1.3); } 
+}
+
+@keyframes pulse { 
+  0%, 100% { 
+    transform: scale(1); 
+    filter: drop-shadow(0 0 15px var(--accent)); 
+  } 
+  50% { 
+    transform: scale(1.05); 
+    filter: drop-shadow(0 0 30px var(--accent)); 
+  } 
+}
+
+@keyframes shimmer { 
+  0% { transform: translateX(-100%); } 
+  50%, 100% { transform: translateX(100%); } 
+}
+
+/* Utility Classes */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card-inset {
+  box-shadow: inset 0 0 15px var(--accent-glow), 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Created and Authored by Johnathon Moulds © 2026 — Wolf Flow Solutions | All Rights Reserved */
