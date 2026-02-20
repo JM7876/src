@@ -815,13 +815,13 @@ export default function WolfCalendar() {
   const [showRightSidebar, setShowRightSidebar] = useState(true);
 
   const [glassParams, setGlassParams] = useState({
-    displacementScale: 90,
+    displacementScale: 70,
     aberration: 1.5,
-    bezelFraction: 0.16,
+    bezelFraction: 0.12,
     blur: 32,
     brightness: 110,
     saturation: 160,
-    frostOpacity: 0.08,
+    frostOpacity: 0.04,
   });
 
   const { svgDefsRef, registerPanel, rebuild } = useLiquidGlass(glassParams);
@@ -895,12 +895,12 @@ export default function WolfCalendar() {
         transition: 'opacity 0.6s ease',
       }} />
 
-      {/* ── Color tint overlay ── */}
+      {/* ── Color tint overlay (reduced to let background shine) ── */}
       <div style={{
         position: 'fixed', inset: 0, zIndex: 1,
         background: nightMode
-          ? `linear-gradient(135deg, ${colors.t1}DD 0%, ${colors.t2}A0 100%)`
-          : `linear-gradient(135deg, ${colors.t1}BB 0%, ${colors.t2}88 100%)`,
+          ? `linear-gradient(135deg, ${colors.t1}15 0%, ${colors.t2}0A 100%)`
+          : `linear-gradient(135deg, ${colors.t1}15 0%, ${colors.t2}0A 100%)`,
         transition: 'background 0.6s ease',
       }} />
 
@@ -954,17 +954,17 @@ export default function WolfCalendar() {
             animation: 'slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
           }}>
             {/* Mini month calendar */}
-            <SimpleGlassPanel radius={32} style={{ flexShrink: 0, boxShadow: '0 16px 32px rgba(0,0,0,0.2)' }}>
+            <LiquidGlassPanel registerRef={registerPanel} radius={32} style={{ flexShrink: 0, boxShadow: '0 16px 32px rgba(0,0,0,0.2)' }}>
               <MiniMonthCalendar
                 date={weekDays[3]}
                 nightMode={nightMode}
                 accentColor={accentColor}
                 textColor={textColor}
               />
-            </SimpleGlassPanel>
+            </LiquidGlassPanel>
 
             {/* Team summary (Class Summary) */}
-            <SimpleGlassPanel radius={32} style={{ flex: 1, boxShadow: '0 16px 32px rgba(0,0,0,0.2)' }}>
+            <LiquidGlassPanel registerRef={registerPanel} radius={32} style={{ flex: 1, boxShadow: '0 16px 32px rgba(0,0,0,0.2)' }}>
               <TeamSummaryRing
                 events={events.filter(e => {
                   const ws = weekStart;
@@ -974,7 +974,7 @@ export default function WolfCalendar() {
                 nightMode={nightMode}
                 textColor={textColor}
               />
-            </SimpleGlassPanel>
+            </LiquidGlassPanel>
           </div>
         )}
       </div>
