@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 // Dynamically import WolfCalendar with no SSR
 // (required — calendar uses browser APIs for glass displacement maps)
 const WolfCalendar = dynamic(
-  () => import('../../components/WolfCalendar'),
+  () => import('../WolfCalendar'),
   { ssr: false }
 );
 
