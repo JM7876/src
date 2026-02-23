@@ -3,8 +3,6 @@
  * Created and Authored by Johnathon Moulds © 2026
  */
 
-@import "tailwindcss";
-
 :root {
   /* Wolf Flow Electric Purple Palette (Night Mode) */
   --wf-purple-primary: #C41DF2;
