@@ -11,6 +11,7 @@ import dynamic from "next/dynamic";
 const WolfCalendar = dynamic(() => import("./WolfCalendar"), { ssr: false });
 
 export default function Home() {
+  console.log("[v0] Home page rendering, loading WolfCalendar...");
   return <WolfCalendar />;
 }
 

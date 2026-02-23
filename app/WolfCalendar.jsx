@@ -826,6 +826,10 @@ export default function WolfCalendar() {
 
   const { svgDefsRef, registerPanel, rebuild } = useLiquidGlass(glassParams);
 
+  useEffect(() => {
+    console.log("[v0] WolfCalendar mounted, nightMode:", nightMode, "palette:", palette);
+  }, []);
+
   const colors = PALETTES[palette][nightMode ? 'night' : 'day'];
   const accentColor = palette === 'purple' ? colors.t4 : colors.t3;
   const textColor = nightMode ? '#E2E1DD' : colors.t4;
