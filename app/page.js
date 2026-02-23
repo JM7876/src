@@ -1,18 +1,25 @@
 /* ═══════════════════════════════════════════════════════════════════
-   WOLF FLOW SOLUTIONS — Command Center Calendar
+   WOLF FLOW SOLUTIONS — Command Center
    Created and Authored by Johnathon Moulds © 2026
 ═══════════════════════════════════════════════════════════════════ */
 
-"use client";
-
-import dynamic from "next/dynamic";
-
-// ssr: false required — LiquidGlass uses browser-only canvas/document APIs
-const WolfCalendar = dynamic(() => import("./WolfCalendar"), { ssr: false });
-
 export default function Home() {
-  console.log("[v0] Home page rendering, loading WolfCalendar...");
-  return <WolfCalendar />;
+  return (
+    <div style={{
+      width: '100vw',
+      height: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'var(--bg-base)',
+      color: 'var(--text-primary)',
+      fontFamily: 'var(--font-primary)',
+    }}>
+      <p style={{ opacity: 0.5, fontSize: '0.9rem' }}>
+        Command Center — ready to build
+      </p>
+    </div>
+  );
 }
 
 // Created and Authored by Johnathon Moulds © 2026 — Wolf Flow Solutions | All Rights Reserved
