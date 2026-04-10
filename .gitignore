@@ -3,3 +3,6 @@ node_modules
 .env.local
 pnpm-debug.log
 .DS_Store
+**/.DS_Store
+data/products.json
+data/pdfs/
