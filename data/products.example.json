@@ -1,0 +1,12 @@
+[
+  {
+    "name": "AI Prompt Packs 1",
+    "service": "S2",
+    "item_number": 1,
+    "description": "Example product description",
+    "price_cents": 9700,
+    "collection_name": "AI Prompt Packs",
+    "collection_slug": "ai-prompt-packs",
+    "pdf_filename": "ai-prompt-packs-1.pdf"
+  }
+]
