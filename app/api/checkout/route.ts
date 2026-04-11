@@ -35,5 +35,5 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Unable to create Stripe session" }, { status: 500 });
   }
 
-  return NextResponse.redirect(session.url);
+    return NextResponse.redirect(session.url, 303);
 }
